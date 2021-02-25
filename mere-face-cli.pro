@@ -12,6 +12,7 @@ SOURCES += \
         src/command/create.cpp \
         src/command/install.cpp \
         src/command/list.cpp \
+        src/command/remove.cpp \
         src/faceapp.cpp \
         src/main.cpp
 
@@ -20,6 +21,7 @@ HEADERS += \
     src/command/create.h \
     src/command/install.h \
     src/command/list.h \
+    src/command/remove.h \
     src/faceapp.h \
 
 INCLUDEPATH += /usr/local/include

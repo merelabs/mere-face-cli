@@ -1,7 +1,8 @@
 #include "install.h"
-#include "mere/face/service.h"
+#include "mere/face/installer.h"
 
 #include <iostream>
+
 Install::Install(const std::string &fqfn, bool system)
     : m_system(system),
       m_fqfn(fqfn)
@@ -11,13 +12,12 @@ Install::Install(const std::string &fqfn, bool system)
 
 void Install::execute()
 {
-    Mere::Face::Service service;
+    Mere::Face::Installer installer;
 
-    int err = service.install(m_fqfn, m_system);
+    int err = installer.install(m_fqfn, m_system);
     if (err)
     {
-        // error message
-        std::cout << "unable to install " << m_fqfn << ", reason - ??" << std::endl;
+        std::cout << "unable to install " << m_fqfn << std::endl;
         return;
     }
 }
