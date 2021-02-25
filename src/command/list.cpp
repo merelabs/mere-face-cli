@@ -1,12 +1,12 @@
 #include "list.h"
-#include "mere/face/service.h"
+#include "mere/face/lister.h"
 
 #include <iostream>
 
 void List::execute()
 {
-    Mere::Face::Service service;
-    std::vector<Mere::Face::Face> faces = service.faces();
+    Mere::Face::Lister lister;
+    std::vector<Mere::Face::Face> faces = lister.list();
 
     if (!faces.size())
     {
@@ -18,10 +18,10 @@ void List::execute()
     std::cout << "Listing of faces installed into the system: " << std::endl;
     std::cout << std::endl;
 
-    std::cout << "UUID\t\t\t\t\tName\t\t\tPath " << std::endl;
+    std::cout << "Name\t\t\tPath " << std::endl;
     for(const Mere::Face::Face &face : faces)
     {
-        std::cout << face.uuid() << "\t" << face.name() << "\t" << face.path() << std::endl;
+        std::cout << face.name() << "\t\t" << face.path() << std::endl;
     }
 
     std::cout << std::endl;
